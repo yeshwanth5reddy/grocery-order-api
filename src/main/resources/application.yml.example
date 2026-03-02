@@ -1,0 +1,32 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: grocery-order-api
+
+  datasource:
+    url: jdbc:postgresql://YOUR_NEON_HOST/YOUR_DB?sslmode=require
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    mongodb:
+      uri: YOUR_MONGODB_ATLAS_URI
+      database: grocery_db
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

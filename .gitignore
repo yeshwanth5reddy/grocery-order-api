@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Mac files - never commit these
+.DS_Store
+**/.DS_Store
+
+# Never commit real credentials
+src/main/resources/application.yml
