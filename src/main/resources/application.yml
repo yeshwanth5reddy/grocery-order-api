@@ -1,0 +1,31 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: grocery-order-api
+
+  datasource:
+    url: jdbc:postgresql://ep-weathered-dew-abtd9zuu-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_iDB3gcabC9xY
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    mongodb:
+      uri: mongodb+srv://groceryuser:snow2025$@grocery-cluster.y636qds.mongodb.net/?appName=grocery-cluster
+      database: grocery_db
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
