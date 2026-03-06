@@ -8,7 +8,6 @@ import org.hibernate.annotations.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Entity
 @Table(name = "products")
@@ -34,7 +33,7 @@ public class Product {
 
     @NotNull(message = "stock quantity is required")
     @Positive(message = "Quantity shall always be greater than zero")
-    @Column(nullable = false)
+    @Column(name = "stock_quantity", nullable = false)
     private Integer quantity;
 
     @NotBlank(message = "Category is required")
