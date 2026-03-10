@@ -33,7 +33,7 @@ public class Product {
 
     @NotNull(message = "stock quantity is required")
     @Positive(message = "Quantity shall always be greater than zero")
-    @Column(name = "stock_quantity", nullable = false)
+    @Column(nullable = false)
     private Integer quantity;
 
     @NotBlank(message = "Category is required")

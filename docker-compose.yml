@@ -1,9 +1,29 @@
 version: '3.8'
+
 services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: grocery-db
+    environment:
+      POSTGRES_DB: grocery_db
+      POSTGRES_USER: grocery_user
+      POSTGRES_PASSWORD: grocery_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
   app:
     build: .
+    container_name: grocery-api
     ports:
       - "9090:9090"
     environment:
-      - SPRING_DATASOURCE_URL=${DATABASE_URL}
-      - SPRING_DATA_MONGODB_URI=${MONGODB_URI}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/grocery_db
+      SPRING_DATASOURCE_USERNAME: grocery_user
+      SPRING_DATASOURCE_PASSWORD: grocery_pass
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

@@ -20,13 +20,19 @@ spring:
       hibernate:
         format_sql: true
 
-  data:
-    mongodb:
-      uri: YOUR_MONGODB_ATLAS_URI
-      database: grocery_db
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+
+jwt:
+  secret: YOUR_BASE64_SECRET_KEY_AT_LEAST_256_BITS
+  expiration: 86400000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
